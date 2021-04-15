@@ -16,10 +16,16 @@ program
 program
     .command('clear')
     .description('clear all tasks')
-    .action((names) => {
-        console.log('clear');
+    .action(() => {
+        api.clear()
     });
 
 program.parse(process.argv);
+
+console.log(process.argv)
+
+if(process.argv.length === 2){
+    api.showAll()
+}
 
 
