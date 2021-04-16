@@ -5,8 +5,8 @@ const dbPath = p.join(home, '.todo')
 const fs = require('fs')
 
 const db = {
-    read(path = dbPath){
-        return new Promise((resolve,reject)=>{
+    read(path = dbPath) {
+        return new Promise((resolve, reject) => {
             fs.readFile(dbPath, { flag: 'a+' }, (error, data) => {
                 if (error) return reject(error)
                 let list
@@ -16,12 +16,12 @@ const db = {
                     list = []
                 }
                 resolve(list)
-            
+
             })
         })
     },
-    write(list,path=dbPath){
-        return new Promise((resolve,reject)=>{
+    write(list, path = dbPath) {
+        return new Promise((resolve, reject) => {
             const string = JSON.stringify(list)
             fs.writeFile(path, string + '\n', (error) => {
                 if (error) return reject(error)
