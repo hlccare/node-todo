@@ -1,3 +1,4 @@
+#!/use/bin/env node
 const { program } = require('commander');
 const api = require('./index.js')
 
@@ -20,11 +21,18 @@ program
         api.clear()
     });
 
+program
+    .command('show')
+    .description('clear all tasks')
+    .action(() => {
+        api.showAll()
+    });
+
 program.parse(process.argv);
 
 console.log(process.argv)
 
-if(process.argv.length === 2){
+if (process.argv.length === 2) {
     api.showAll()
 }
 
